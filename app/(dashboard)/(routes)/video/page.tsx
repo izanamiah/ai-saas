@@ -1,7 +1,7 @@
 "use client";
 
 import * as z from "zod";
-import Heading from "@/components/heading";
+import { Heading } from "@/components/heading";
 import { Video } from "lucide-react";
 import { useForm } from "react-hook-form";
 
@@ -16,6 +16,7 @@ import axios from "axios";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
 import { useProModal } from "@/hooks/useProModal";
+import { toast } from "react-hot-toast";
 
 const VideoPage = () => {
   const router = useRouter();
@@ -40,6 +41,8 @@ const VideoPage = () => {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error("Something went wrong");
       }
     } finally {
       router.refresh();
