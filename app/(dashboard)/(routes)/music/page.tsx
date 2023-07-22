@@ -1,7 +1,7 @@
 "use client";
 
 import * as z from "zod";
-import Heading from "@/components/heading";
+import { Heading } from "@/components/heading";
 import { Music } from "lucide-react";
 import { useForm } from "react-hook-form";
 

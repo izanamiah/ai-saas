@@ -10,9 +10,13 @@ import { useProModal } from "@/hooks/useProModal";
 
 interface FreeCountProps {
   apiLimitCount: number;
+  isPro: boolean;
 }
 
-export const FreeCounter = ({ apiLimitCount = 0 }: FreeCountProps) => {
+export const FreeCounter = ({
+  apiLimitCount = 0,
+  isPro = false,
+}: FreeCountProps) => {
   const proModal = useProModal();
   const [mounted, setMounted] = useState(false);
 
@@ -24,6 +28,9 @@ export const FreeCounter = ({ apiLimitCount = 0 }: FreeCountProps) => {
     return null;
   }
 
+  if (isPro) {
+    return null;
+  }
   return (
     <div className="px-3">
       <Card className="bg-white/10 border-0">
